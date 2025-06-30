@@ -1,7 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-const session = require('express-session');
+// Importing as any to avoid TypeScript export=: default interop issue
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const session: any = require('express-session');
 import { createServer } from 'http';
 import routes from './routes';
 import { errorHandler, notFound } from './middleware/errorHandler';
