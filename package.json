@@ -1,0 +1,46 @@
+{
+  "name": "callai-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CallAI - AI-Powered Customer Service for Shopify",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "npm --workspace=@callai/frontend run dev",
+    "dev:backend": "npm --workspace=@callai/backend run dev",
+    "build": "npm run build --workspaces",
+    "build:frontend": "npm run build --workspace=@callai/frontend",
+    "build:backend": "npm run build --workspace=@callai/backend",
+    "start": "npm run start --workspace=@callai/backend",
+    "lint": "npm run lint --workspaces",
+    "clean": "npm run clean --workspaces",
+    "install:all": "npm install",
+    "test": "npm run test --workspaces"
+  },
+  "workspaces": [
+    "apps/frontend",
+    "apps/backend"
+  ],
+  "keywords": [
+    "monorepo",
+    "ai",
+    "customer-service",
+    "shopify",
+    "voice-ai",
+    "react",
+    "nodejs",
+    "typescript"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "rimraf": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "dependencies": {
+    "express-session": "^1.18.1"
+  }
+}

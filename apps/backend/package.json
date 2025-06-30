@@ -1,0 +1,63 @@
+{
+  "name": "@callai/backend",
+  "version": "1.0.0",
+  "description": "This is the backend API server for the voice-enabled ecommerce customer service platform. It provides REST APIs for store integration, handles voice processing pipelines, and manages customer interactions.",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "nodemon src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "clean": "rimraf dist",
+    "generate-credentials": "ts-node src/scripts/generateCredentials.ts",
+    "validate-elevenlabs": "ts-node src/scripts/validateElevenLabsConfig.ts",
+    "test-elevenlabs": "ts-node src/scripts/testElevenLabsTTS.ts",
+    "test-settings": "ts-node scripts/testSettings.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ecommerce",
+    "voice-ai",
+    "customer-service",
+    "api",
+    "typescript",
+    "express"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.3",
+    "@types/express-session": "^1.18.2",
+    "@types/morgan": "^1.9.10",
+    "@types/node": "^24.0.3",
+    "nodemon": "^3.1.10",
+    "rimraf": "^5.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@google/genai": "^1.6.0",
+    "@google/generative-ai": "^0.24.1",
+    "@supabase/supabase-js": "^2.50.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/crypto-js": "^4.2.2",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node-fetch": "^2.6.12",
+    "@types/twilio": "^3.19.2",
+    "@types/ws": "^8.18.1",
+    "axios": "^1.10.0",
+    "bcryptjs": "^3.0.2",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.2.0",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-session": "^1.18.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.7.0",
+    "openai": "^5.7.0",
+    "twilio": "^5.7.1",
+    "ws": "^8.18.2"
+  }
+}
