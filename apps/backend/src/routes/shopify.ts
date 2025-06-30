@@ -1,12 +1,15 @@
+/// <reference path="../types/session.d.ts" />
 import { Router, Request, Response } from 'express';
 import { ShopifyService, ShopifyOAuthParams } from '../services/shopifyService';
 import { ApiResponse } from '../types';
+import '../types/session';
+import type { SessionData } from 'express-session';
 
 const router = Router();
 const shopifyService = ShopifyService.getInstance();
 
 // GET /api/auth/shopify/install - Initiate Shopify OAuth flow
-router.get('/install', async (req: Request, res: Response): Promise<void> => {
+router.get('/install', async (req: Request & { session: SessionData }, res: Response): Promise<void> => {
   try {
     const { shop } = req.query;
 
@@ -60,7 +63,7 @@ router.get('/install', async (req: Request, res: Response): Promise<void> => {
 });
 
 // GET /api/auth/shopify/callback - Handle OAuth callback
-router.get('/callback', async (req: Request, res: Response): Promise<void> => {
+router.get('/callback', async (req: Request & { session: SessionData }, res: Response): Promise<void> => {
   try {
     const { code, hmac, shop, state, timestamp } = req.query;
 
